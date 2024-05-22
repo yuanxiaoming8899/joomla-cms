@@ -1,82 +1,134 @@
-Joomla! CMS™
-====================
-
-The Joomla! 5.0 branch is under heavy development and not all links in this document are available yet
-------------------------------------------------------------------------------------------------------
-
-Build Status
----------------------
-| Drone-CI                                                                                                                                 | AppVeyor                                                                                                                                                           | PHP                                                                           | Node                                                                                 | npm                                                                             |
-|------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| [![Build Status](https://ci.joomla.org/api/badges/joomla/joomla-cms/status.svg?branch=5.0-dev)](https://ci.joomla.org/joomla/joomla-cms) | [![Build status](https://ci.appveyor.com/api/projects/status/ru6sxal8jmfckvjc/branch/5.0-dev?svg=true)](https://ci.appveyor.com/project/release-joomla/joomla-cms) | [![PHP](https://img.shields.io/badge/PHP-V8.1.0-green)](https://www.php.net/) | [![node-lts](https://img.shields.io/badge/Node-V20.0-green)](https://nodejs.org/en/) | [![npm](https://img.shields.io/badge/npm-v10.1.0-green)](https://nodejs.org/en/) |
-
-Overview
----------------------
-* This is the source of Joomla! 5.x.
-* Joomla's [Official website](https://www.joomla.org).
-* Joomla! 5.0 [version history](https://docs.joomla.org/Special:MyLanguage/Joomla_5.0_version_history).
-* Detailed changes are in the [changelog](https://github.com/joomla/joomla-cms/commits/5.0-dev).
-
-What is Joomla?
----------------------
-* [Joomla!](https://www.joomla.org/about-joomla.html) is a **Content Management System** (CMS) which enables you to build websites and powerful online applications.
-* It is a simple and powerful web server application which requires a server with PHP and either MySQL or PostgreSQL to run. You can find [full technical requirements here](https://downloads.joomla.org/technical-requirements).
-* Joomla! is **free and Open Source software** distributed under the GNU General Public License version 2 or later.
-
-Looking for an installable package?
----------------------
-Joomla is not installable out of the box from this repository, please use:
-- For the latest stable package: https://downloads.joomla.org
-- For a nightly package: https://developer.joomla.org/nightly-builds.html
-
-How to get a working installation from the source
----------------------
-For detailed instructions please visit https://docs.joomla.org/Special:MyLanguage/J5.x:Setting_Up_Your_Local_Environment
-
-You will need:
-- PHP - basically the same as you need for running a Joomla Site, but you need the cli (command line interface) Version (see https://docs.joomla.org/Special:MyLanguage/Configuring_a_LAMPP_server_for_PHP_development)
-- Composer - for managing Joomla's PHP Dependencies. For help installing composer please read the documentation at https://getcomposer.org/doc/00-intro.md
-- Node.js - for compiling Joomla's Javascript and SASS files. For help installing Node.js please follow the instructions available on https://nodejs.org/en/
-- Git - for version management. Download from here https://git-scm.com/downloads (MacOS users can also use Brew and Linux users can use the built-in package manager, eg apt, yum, etc).
-
-**Steps to setup the local environment:**
-- Clone the repository:
-```bash
-git clone https://github.com/joomla/joomla-cms.git
-```
-- Go to the joomla-cms folder:
-```bash
-cd joomla-cms
-```
-- Go to the 5.0-dev branch:
-```bash
-git checkout 5.0-dev
-```
-- Install all the needed composer packages:
-```bash
-composer install
-```
-- Install all the needed npm packages:
-```bash
-npm ci
-```
-
-**Things to be aware of when pulling:**
-Joomla creates a cache of the namespaces of its extensions in `JOOMLA_ROOT/administrator/cache/autoload_psr4.php`. If
-extensions are created, deleted or removed in git then this file needs to be recreated. You can simply delete the file
-and it will be regenerated on the next call to Joomla.
-
-Do you want to improve Joomla?
---------------------
-* Where to [request a feature](https://issues.joomla.org)?
-* How do you [report a bug](https://docs.joomla.org/Special:MyLanguage/Filing_bugs_and_issues) on the [Issue Tracker](https://issues.joomla.org)?
-* Get Involved: Joomla! is community developed software. [Join the community](https://volunteers.joomla.org).
-* Documentation for [Developers](https://docs.joomla.org/Special:MyLanguage/Portal:Developers).
-* Documentation for [Web designers](https://docs.joomla.org/Special:MyLanguage/Web_designers).
-* Provide a translation for Joomla: [Joomla Crowdin Project](https://joomla.crowdin.com/cms)
-
-Copyright
----------------------
-* (C) 2005 Open Source Matters, Inc. <https://www.joomla.org>
-* Distributed under the GNU General Public License version 2 or later
-* See [License details](https://docs.joomla.org/Special:MyLanguage/Joomla_Licenses)
+<div class="Box-sc-g0xbh4-0 bJMeLZ js-snippet-clipboard-copy-unpositioned" data-hpc="true"><article class="markdown-body entry-content container-lg" itemprop="text"><div class="markdown-heading" dir="auto"><h1 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">乔姆拉！ CMS™</font></font></h1><a id="user-content-joomla-cms" class="anchor" aria-label="永久链接：Joomla！ CMS™" href="#joomla-cms"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">构建状态</font></font></h2><a id="user-content-build-status" class="anchor" aria-label="永久链接：构建状态" href="#build-status"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<table>
+<thead>
+<tr>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">无人机-CI</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">应用程序载体</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PHP</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">节点</font></font></th>
+<th><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">新项目管理</font></font></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://ci.joomla.org/joomla/joomla-cms" rel="nofollow"><img src="https://camo.githubusercontent.com/0eeea8cf8b485eb5f58389a8c92e6f4b79d97790729b9030de7a15e385fc1e9a/68747470733a2f2f63692e6a6f6f6d6c612e6f72672f6170692f6261646765732f6a6f6f6d6c612f6a6f6f6d6c612d636d732f7374617475732e7376673f6272616e63683d342e342d646576" alt="构建状态" data-canonical-src="https://ci.joomla.org/api/badges/joomla/joomla-cms/status.svg?branch=4.4-dev" style="max-width: 100%;"></a></td>
+<td><a href="https://ci.appveyor.com/project/release-joomla/joomla-cms" rel="nofollow"><img src="https://camo.githubusercontent.com/c38d57d89b4eb00aec156bdbdc8333450a08b9534289195f8fe87ac00756d3e5/68747470733a2f2f63692e6170707665796f722e636f6d2f6170692f70726f6a656374732f7374617475732f7275367378616c386a6d66636b766a632f6272616e63682f342e342d6465763f7376673d74727565" alt="构建状态" data-canonical-src="https://ci.appveyor.com/api/projects/status/ru6sxal8jmfckvjc/branch/4.4-dev?svg=true" style="max-width: 100%;"></a></td>
+<td><a href="https://www.php.net/" rel="nofollow"><img src="https://camo.githubusercontent.com/f5d73d2611ed86ba95695bfdec6ff80ba98fe8e8e934e5ba19176f6ed81b3b2a/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5048502d56372e322e352d677265656e" alt="PHP" data-canonical-src="https://img.shields.io/badge/PHP-V7.2.5-green" style="max-width: 100%;"></a></td>
+<td><a href="https://nodejs.org/en/" rel="nofollow"><img src="https://camo.githubusercontent.com/b2c96027ec858fbe5512533d9f4b9358712e0c0aeffb6c273b2024f3f15f8724/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4e6f64652d5632302e302d677265656e" alt="节点-lts" data-canonical-src="https://img.shields.io/badge/Node-V20.0-green" style="max-width: 100%;"></a></td>
+<td><a href="https://nodejs.org/en/" rel="nofollow"><img src="https://camo.githubusercontent.com/12e435a88a4f32199070e5b380aa331d2476093a656f85c80685227f11be28f1/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6e706d2d7631302e312e302d677265656e" alt="新项目管理" data-canonical-src="https://img.shields.io/badge/npm-v10.1.0-green" style="max-width: 100%;"></a></td>
+</tr>
+</tbody>
+</table>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">概述</font></font></h2><a id="user-content-overview" class="anchor" aria-label="固定链接：概述" href="#overview"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">这就是 Joomla! 的来源！ 4.x。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Joomla 的</font></font><a href="https://www.joomla.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">官方网站</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">乔姆拉！ 4.4</font></font><a href="https://docs.joomla.org/Special:MyLanguage/Joomla_4.4_version_history" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版本历史</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">详细更改位于</font></font><a href="https://github.com/joomla/joomla-cms/commits/4.4-dev"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">更改日志</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">中。</font></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">什么是 Joomla？</font></font></h2><a id="user-content-what-is-joomla" class="anchor" aria-label="永久链接：Joomla 是什么？" href="#what-is-joomla"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><a href="https://www.joomla.org/about-joomla.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">乔姆拉！</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">是一个</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">内容管理系统</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(CMS)，可让您构建网站和强大的在线应用程序。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">它是一个简单而强大的 Web 服务器应用程序，需要具有 PHP 和 MySQL 或 PostgreSQL 的服务器才能运行。您可以</font></font><a href="https://downloads.joomla.org/technical-requirements" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在此处找到完整的技术要求</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">乔姆拉！是</font><font style="vertical-align: inherit;">根据 GNU 通用公共许可证版本 2 或更高版本分发的</font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">免费开源软件。</font></font></strong><font style="vertical-align: inherit;"></font></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">正在寻找可安装包？</font></font></h2><a id="user-content-looking-for-an-installable-package" class="anchor" aria-label="永久链接：正在寻找可安装的软件包？" href="#looking-for-an-installable-package"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Joomla 无法从此存储库中开箱即用安装，请使用：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最新稳定包：</font></font><a href="https://downloads.joomla.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://downloads.joomla.org</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">对于每晚包：</font></font><a href="https://developer.joomla.org/nightly-builds.html" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://developer.joomla.org/nightly-builds.html</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何从源代码获取可运行的安装</font></font></h2><a id="user-content-how-to-get-a-working-installation-from-the-source" class="anchor" aria-label="永久链接：如何从源代码获得有效的安装" href="#how-to-get-a-working-installation-from-the-source"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">有关详细说明，请访问</font></font><a href="https://docs.joomla.org/Special:MyLanguage/J4.x:Setting_Up_Your_Local_Environment" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://docs.joomla.org/Special:MyLanguage/J4.x:Setting_Up_Your_Local_Environment</font></font></a></p>
+<p dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">你会需要：</font></font></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PHP - 基本上与运行 Joomla 网站所需的相同，但您需要 cli（命令行界面）版本（请参阅</font></font><a href="https://docs.joomla.org/Special:MyLanguage/Configuring_a_LAMPP_server_for_PHP_development" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://docs.joomla.org/Special:MyLanguage/Configuring_a_LAMPP_server_for_PHP_development</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">）</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Composer - 用于管理 Joomla 的 PHP 依赖项。如需安装 Composer 的帮助，请阅读</font><a href="https://getcomposer.org/doc/00-intro.md" rel="nofollow"><font style="vertical-align: inherit;">https://getcomposer.org/doc/00-intro.md</font></a><font style="vertical-align: inherit;">上的文档</font></font><a href="https://getcomposer.org/doc/00-intro.md" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Node.js - 用于编译 Joomla 的 Javascript 和 SASS 文件。如需安装 Node.js 的帮助，请按照</font><a href="https://nodejs.org/en/" rel="nofollow"><font style="vertical-align: inherit;">https://nodejs.org/en/</font></a><font style="vertical-align: inherit;">上的说明进行操作</font></font><a href="https://nodejs.org/en/" rel="nofollow"><font style="vertical-align: inherit;"></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Git - 用于版本管理。从这里下载</font></font><a href="https://git-scm.com/downloads" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://git-scm.com/downloads（MacOS</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户也可以使用Brew，Linux用户可以使用内置的包管理器，例如apt、yum等）。</font></font></li>
+</ul>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">设置本地环境的步骤：</font></font></strong></p>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">克隆存储库：</font></font></li>
+</ul>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>git clone https://github.com/joomla/joomla-cms.git</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="git clone https://github.com/joomla/joomla-cms.git" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">转到 joomla-cms 文件夹：</font></font></li>
+</ul>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre><span class="pl-c1">cd</span> joomla-cms</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="cd joomla-cms" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">转到 4.4-dev 分支：</font></font></li>
+</ul>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>git checkout 4.4-dev</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="git checkout 4.4-dev" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装所有需要的作曲家包：</font></font></li>
+</ul>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>composer install</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="composer install" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">安装所有需要的 npm 包：</font></font></li>
+</ul>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>npm ci</pre><div class="zeroclipboard-container">
+    <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="npm ci" tabindex="0" role="button">
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon">
+    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+</svg>
+      <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-check js-clipboard-check-icon color-fg-success d-none">
+    <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+</svg>
+    </clipboard-copy>
+  </div></div>
+<p dir="auto"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">拉取时需要注意的事项：</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 
+Joomla 在</font></font><code>JOOMLA_ROOT/administrator/cache/autoload_psr4.php</code><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">.如果在 git 中创建、删除或移除扩展，则需要重新创建该文件。您只需删除该文件，下次调用 Joomla 时就会重新生成该文件。</font></font></p>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">您想改进 Joomla 吗？</font></font></h2><a id="user-content-do-you-want-to-improve-joomla" class="anchor" aria-label="永久链接：您想改进 Joomla 吗？" href="#do-you-want-to-improve-joomla"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">在哪里</font></font><a href="https://issues.joomla.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">请求功能</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">？</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">如何报告</font><a href="https://issues.joomla.org" rel="nofollow"><font style="vertical-align: inherit;">问题跟踪器</font></a><font style="vertical-align: inherit;">上的</font></font><a href="https://docs.joomla.org/Special:MyLanguage/Filing_bugs_and_issues" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">错误</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">？</font></font><a href="https://issues.joomla.org" rel="nofollow"><font style="vertical-align: inherit;"></font></a><font style="vertical-align: inherit;"></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">参与其中：Joomla！是社区开发的软件。</font></font><a href="https://volunteers.joomla.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">加入社区</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"></font><a href="https://docs.joomla.org/Special:MyLanguage/Portal:Developers" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">开发人员</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">文档</font><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"></font><a href="https://docs.joomla.org/Special:MyLanguage/Web_designers" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">网页设计人员</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">的文档</font><font style="vertical-align: inherit;">。</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">为 Joomla 提供翻译：</font></font><a href="https://joomla.crowdin.com/cms" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Joomla Crowdin 项目</font></font></a></li>
+</ul>
+<div class="markdown-heading" dir="auto"><h2 tabindex="-1" class="heading-element" dir="auto"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">版权</font></font></h2><a id="user-content-copyright" class="anchor" aria-label="永久链接：版权所有" href="#copyright"><svg class="octicon octicon-link" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a></div>
+<ul dir="auto">
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">(C) 2005 Open Source Matters, Inc. </font></font><a href="https://www.joomla.org" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">https://www.joomla.org</font></font></a></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">根据 GNU 通用公共许可证版本 2 或更高版本分发</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">查看</font></font><a href="https://docs.joomla.org/Special:MyLanguage/Joomla_Licenses" rel="nofollow"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">许可证详细信息</font></font></a></li>
+</ul>
+</article></div>
